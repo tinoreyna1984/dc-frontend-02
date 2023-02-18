@@ -1,0 +1,187 @@
+/*************** button ***************/
+
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+/* input container with label, helper and side icons */
+.text-field-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+/* input, texts and side icons */
+.text-field {
+  margin-top: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  /* placeholder for all compatible browsers */
+  &::placeholder,
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder {
+    font-family: v.$noto-sans-jp;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #828282;
+  }
+}
+
+/* side icons */
+.side-icon {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 2rem;
+  line-height: 2rem;
+  color: #828282;
+}
+
+/* unset inputs inner format */
+input[type="text"],
+textarea {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+textarea {
+  resize: none;
+}
+
+/* size */
+.sm {
+  padding: 1rem 1.2rem;
+}
+.md {
+  padding: 1.8rem 1.2rem;
+}
+
+/* width */
+.default-width {
+  max-width: fit-content;
+}
+.full-width {
+  width: auto;
+}
+
+/* default style */
+.default-style {
+  border: 1px solid #828282;
+  &:hover {
+    border: 1px solid #333333;
+  }
+  &:focus,
+  &:active {
+    outline: 1px solid #2962ff;
+  }
+  &:disabled {
+    background-color: #f2f2f2;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    &::placeholder,
+    &::-moz-placeholder,
+    &::-webkit-input-placeholder {
+      font-family: v.$noto-sans-jp;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: #828282;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+/* disabled */
+.disabled {
+  border: 1px solid #828282;
+  background-color: #f2f2f2;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  &::placeholder,
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder {
+    font-family: v.$noto-sans-jp;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: #828282;
+  }
+}
+
+/* label with the component declaration as text */
+.label {
+  color: #828282;
+  &:hover {
+    color: #333333;
+  }
+  &:active,
+  &:focus {
+    color: #2962ff;
+  }
+}
+
+/* label in case of an error */
+.label-error {
+  color: #d32f2f;
+  &:hover {
+    color: #333333;
+  }
+  &:active,
+  &:focus {
+    color: #d32f2f;
+  }
+}
+
+/* input in case of an error */
+.error {
+  border: 1px solid #d32f2f;
+  &:hover {
+    border: 1px solid #333333;
+  }
+  &:active,
+  &:focus {
+    border: none;
+    outline: 1px solid #d32f2f;
+  }
+}
+
+/* helper texts */
+.helper,
+.helper-error {
+  margin-top: 0.5rem;
+  font-family: v.$noto-sans-jp;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+/* default helper */
+.helper {
+  color: #828282;
+}
+
+/* helper text in case of an error */
+.helper-error {
+  color: #d32f2f;
+}
+
+/* transition */
+.default-style, .disabled, .error, .label, .label-error {
+  transition: all 0.4s ease-in-out;
+  &:hover, &:focus, &:active{
+    transition: all 0.4s ease-in-out;
+  }
+}
